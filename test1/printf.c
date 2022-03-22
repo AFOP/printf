@@ -18,6 +18,37 @@ void print_c(va_list args)
 }
 
 /**
+ * print_s - prints a character
+ * @str: arguments character
+ * @s: string
+ * Return: print string s
+ */
+void print_s(va_list str)
+{
+	char *s;
+	int j, i;
+	j = 0;
+	if (str == NULL)
+	{
+		return (NULL);
+	}
+	while (str[j] != '\0')
+	{
+		j++;
+	}
+	s = va_arg(malloc(sizeof(*str) * j + 1), int);
+	if (s == NULL)
+	{
+		return (NULL);
+	}
+	for (i = 0; i < j; i++)
+	{
+		s[i] = str[i];
+	}
+	return (write(1, &s, 1));
+	
+}
+/**
  * *get_func - get and compare 
  * @ch: type of format
  * Return: pointer to function that returns struct of type printable
