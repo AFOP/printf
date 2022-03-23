@@ -26,18 +26,19 @@ int print_c(va_list args)
  */
 int print_s(va_list args)
 {
-    int i = 0;
-    char *str;
+	int i = 0, count = 0;
+	char *str;
     
-    str = va_arg(args, char*);
-    if (str == NULL)
-      return (98);
-    while (str)
-    {
-      return (_putchar(str[i]));
-      i++;
-    }
-    return (98);
+	str = va_arg(args, char*);
+	if (str == NULL)
+		str = '\0';
+	while (str)
+	{
+		_putchar(str[i]);
+		i++;
+		count++;
+	}
+    	return (count);
 }
 
 /**
@@ -64,7 +65,7 @@ int print_percent(va_list args)
  * @x: type of format
  * Return: pointer to function that returns struct of type printable
  */
-void (*get_func(char x))(va_list)
+int (*get_func(char x))(va_list)
 {
 	int i = 0;
 	spec arr[] = {
