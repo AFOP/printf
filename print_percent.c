@@ -1,0 +1,47 @@
+#include <stdlib.h>                                              
+
+#include <stdarg.h>                                              
+
+#include <stdio.h>                                               
+
+#include "main.h"                                                
+
+/**                                                              
+ *
+ *  * print_percent - prints a string                               
+ *
+ *   * @args: arguments character                                    
+ *
+ *    * @str: pointer of string                                       
+ *
+ *     * @i: integer for string                                        
+ *
+ *      * Return: print character c                                     
+ *
+ *       */                                                              
+
+int print_percent(va_list args)                                  
+
+{                                                                
+
+	     int count = 0;                                              
+
+	          char *str;                                                  
+
+		                                                                   
+
+		      str = "%";                                                   
+
+		          if (va_arg(args, int) == *str)                               
+
+				      {                                                            
+
+					           _putchar(*str);                                             
+
+						       }                                                            
+
+			      return (count);                                              
+
+}                                                                
+
+  
