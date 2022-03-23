@@ -3,9 +3,8 @@
 
 /**
  * struct specifier - Struct format
- *
- * @f: function
- * @list: The list of the function
+ * @valid: Format
+ * @f: Function to print
  */
 typedef struct specifier
 {
