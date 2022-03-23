@@ -3,9 +3,8 @@
 
 /**
  * struct specifier - Struct format
- *
- * @f: function
- * @list: The list of the function
+ * @valid: Format
+ * @f: Function to print
  */
 typedef struct specifier
 {
@@ -19,4 +18,4 @@ int print_c(va_list args);
 int print_s(va_list args);
 int print_percent(va_list args);
 int (*get_func(char x))(va_list);
-#endif /* MAIN_H */
+#endif
