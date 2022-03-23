@@ -1,5 +1,4 @@
 #include <stdlib.h>
-#include <unistd.h>
 #include <stdarg.h>
 #include <stdio.h>
 #include "main.h"
@@ -10,12 +9,12 @@
  * @c: character
  * Return: print character c
  */
-void print_c(va_list args)
+int print_c(va_list args)
 {
-	char c;
+	int c;
 
 	c = va_arg(args, int);
-	return (write(1, &c, 1));
+	return (_putchar(c));
 }
 
 /**
@@ -32,12 +31,13 @@ int print_s(va_list args)
     
     str = va_arg(args, char*);
     if (str == NULL)
-      return (NULL);
-    while (str != '\0')
+      return (98);
+    while (str)
     {
-      return (write(1, &str[i], strlen(str)));
+      return (_putchar(str[i]));
       i++;
     }
+    return (98);
 }
 
 /**
@@ -64,19 +64,21 @@ int print_percent(va_list args)
  * @x: type of format
  * Return: pointer to function that returns struct of type printable
  */
-int (*get_func(char x))(va_list)
+void (*get_func(char x))(va_list)
 {
 	int i = 0;
 	spec arr[] = {
-		{'c', print_c},
-		{'s', print_s},
-		{'%', print_percent},
+		{"c", print_c},
+		{"s", print_s},
+		{"%", print_percent},
 		{NULL, NULL}
 	};
 	while (i < 3)
 	{
 		if (x == arr[i].valid[0])
 			return (arr[i].f);
+		else 
+			return (arr[0].f);
 		i++;
 	}
 	return (NULL);
@@ -106,7 +108,7 @@ int _printf(const char *format, ...)
                 if (format[i + 1] == '%')
                 {
                     count = count + 1;
-                    write(1, &format[i], 1);
+                    _putchar(format[i]);
                     i += 2;
                 }
                 else
@@ -118,14 +120,14 @@ int _printf(const char *format, ...)
                         m(args);
                     }    
                     else
-                        count = write(1, &format[i], 1) + write(1, &format[i + 1], 1);
+                        count = _putchar(format[i]) + _putchar(format[i + 1]);
                     i += 2;
                 }
             }
             else
             {
                 count = count + 1;
-                write(1, &format[i], 1);
+                _putchar(format[i]);
                 i++;
             }
         }
