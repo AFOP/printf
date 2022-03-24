@@ -25,13 +25,6 @@ int _printf(const char *format, ...)
                 }
                 if (!format[i])
                         return (count);
-                if (format[i + 1] == '%')
-                {
-                        i += 2;
-                }else
-                {
-                        i++;
-                }
                 m = get_func(&format[i + 1]);
                 if (m != NULL)
                 {
@@ -45,6 +38,14 @@ int _printf(const char *format, ...)
                 }
                 _putchar(format[i]);
                 count++;
+		if (format[i + 1] == '%')
+                {
+                        i += 2;
+                }else
+                {
+                        i++;
+                }
+
         }
         va_end(args);
         return (count);

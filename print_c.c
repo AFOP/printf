@@ -9,7 +9,7 @@
  */
 int print_c(va_list list)
 {
-	char ch = (va_arg(list, int));
+	char ch = (char)va_arg(list, int);
 
 	_putchar(ch);
 	return (1);
