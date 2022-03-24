@@ -24,9 +24,9 @@ int main(void)
 
 
 
-			len = _printf("%");
+			len = _printf("Should print a single percent sign: %%\n");
 
-				len2 = printf("%");
+				len2 = printf("Should print a single percent sign: %%\n");
 
 					fflush(stdout);
 
