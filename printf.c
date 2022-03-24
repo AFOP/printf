@@ -34,7 +34,10 @@ int _printf(const char *format, ...)
 					m = get_func(format[i + 1]);
 					if (m)
 					{
-						count += print_s(args);
+						if (format[i + 1] == 'c')
+							      count += print_c(args);
+						                                                if (format[i + 1] == 's')
+													                                                    count += print_s(args);
 					}
 					else
 						count = _putchar(format[i]) + _putchar(format[i + 1]);
