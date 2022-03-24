@@ -4,11 +4,10 @@
 #include "main.h"
 /**
  * get_func - get and compare
- * @x: type of format
+ * @i: Integer variable
  * Return: pointer to function that returns struct of type printable
  */
-int (*get_func(char x))(va_list)
-
+int (*get_func(const char *format))(va_list)
 {
 	int i = 0;
 
@@ -18,13 +17,13 @@ int (*get_func(char x))(va_list)
 		{"%", print_percent},
 		{NULL, NULL}
 	};
-	while (i < 3)
+	while (i != NULL)
 	{
-		if (x == arr[i].valid[0])
+		if (*(arr[i].valid) == *format)
 		{
-			return (arr[i].f);
+			break;
 		}
-			i++;
+		i++;
 	}
-	return (0);
+	return (arr[i].f);
 }

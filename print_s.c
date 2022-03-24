@@ -17,7 +17,7 @@ int print_s(va_list args)
 	str = va_arg(args, char *);
 	if (str == NULL)
 	{
-		str = '\0';
+		str = '(null)';
 	}
 	while (str[i] != '\0')
 	{
