@@ -8,11 +8,11 @@
  * @args: arguments character
  * Return: print character c
  **/
-
 int print_s(va_list args)
 
 {
-	int j, i = 0, count = 0;
+	int j, i = 0;
+       long count = 0;
 	char *str;
 
 	str = va_arg(args, char *);
@@ -31,3 +31,4 @@ int print_s(va_list args)
 	}
 	return (count);
 }
+
