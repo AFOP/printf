@@ -23,21 +23,15 @@ int _printf(const char *format, ...)
 			{
 				if (format[i + 1] == '%')
 				{
-					count += _putchar(format[i]); i += 2;
+					count += _putchar(format[i]), i += 2;
 				}
 				else
 				{
 					m = get_func(format[i + 1]);
 					if (m)
 					{
-						if (format[i + 1] == 'c')
-							count += print_c(args);
-						if (format[i + 1] == 's')
-							count += print_s(args);
+						count += m(args), i += 2;
 					}
-					else
-						count = _putchar(format[i]) + _putchar(format[i + 1]);
-					i += 2;
 				}
 			}
 			else
