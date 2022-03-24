@@ -1,6 +1,7 @@
 #ifndef MAIN_H
 #define MAIN_H
 
+#include <stdarg.h>
 /**
  * struct specifier - Struct format
  * @valid: Format
@@ -17,5 +18,5 @@ int _printf(const char *format, ...);
 int print_c(va_list args);
 int print_s(va_list args);
 int print_percent(va_list args);
-int (*get_func(char x))(va_list);
-#endif /* MAIN_H */
+int (*get_func(const char *format))(va_list);
+#endif

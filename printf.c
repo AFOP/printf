@@ -18,30 +18,28 @@ int _printf(const char *format, ...)
 		return (-1);
 	while(format[i])
 	{
-		for(; format[i] != '%' && format[i] != NULL; i++)
+		for(; format[i] != '%' && format[i]; i++)
 		{
 			_putchar(format[i]);
 			count++;
 		}
-		if(format[i + 1] == '%')
+		if (!format[i])
+			return (count);
+		if (format[i + 1] == '%')
 		{
 			i += 2;
 		}else
 		{
-		i++;
-		}
-		if(!format[i])
-		{
-			return (count);
+			i++;
 		}
 		m = get_func(&format[i + 1]);
-		if(m != NULL)
+		if (m != NULL)
 		{
 			count += m(args);
 			i += 2;
 			continue;
 		}
-		if(!format[i + 1])
+		if (!format[i + 1])
 		{
 			return (-1);
 		}
