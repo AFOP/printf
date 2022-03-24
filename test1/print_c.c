@@ -4,15 +4,13 @@
 #include "main.h"
 /**
  * print_c - A function that prints a char
- * @args: Character
+ * @list: Character
  * Return: Always 1 (Success)
  */
-int print_c(va_list args)
+int print_c(va_list list)
 {
-	int c, count = 0;
+	int ch = 0;
 
-	c = va_arg(args, int);
-	_putchar(c);
-	count++;
-	return (count);
+	ch = _putchar(va_arg(list, int));
+	return (ch);
 }
