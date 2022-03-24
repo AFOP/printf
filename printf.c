@@ -7,10 +7,10 @@
  * @format: string with the format
  * Return: NULL in case of error or print the string.
  */
-int _printf(const char format, ...)
+int _printf(const char *format, ...)
 {
         int count  = 0, i = 0;
-        int (m)(va_list);
+        int (*m)(va_list);
         va_list args;
 
         va_start(args, format);
