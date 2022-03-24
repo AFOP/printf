@@ -10,23 +10,17 @@
  **/
 int print_s(va_list args)
 {
-	int j, i = 0;
-	long count = 0;
+	int j = 0;
 	char *str;
 
 	str = va_arg(args, char *);
 	if (str == NULL)
 	{
-		str = '(null)';
+		str = "(null)";
 	}
-	while (str[i] != '\0')
-	{
-		i++;
-		count++;
-	}
-	for (j = 0; j < i; j++)
+	for (j = 0; str[j]; j++)
 	{
 		_putchar(str[j]);
 	}
-	return (count);
+	return (j);
 }
