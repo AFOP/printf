@@ -30,4 +30,3 @@ int print_s(va_list args)
 	}
 	return (count);
 }
-
