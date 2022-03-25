@@ -1,0 +1,74 @@
+.TH man 3 "24 Marzo 2022" "0.1" "_printf man page"                                                                                       
+                                                                                                                                        
+.SH NAME                                                                                                                                
+_printf                                                                                                                                 
+                                                                                                                                        
+.SH SYNOPSIS                                                                                                                            
+#include <unistd.h>                                                                                                                     
+                                                                                                                                        
+.B int _putchar(char c);                                                                                                                
+                                                                                                                                        
+ #include <stdlib.h>                                                                                                                    
+ #include <stdarg.h>                                                                                                                    
+ #include <stdio.h>                                                                                                                     
+ #include <unistd.h>                                                                                                                    
+                                                                                                                                        
+ int _printf(const char *format, ...);                                                                                                  
+ int print_c(va_list args);                                                                                                             
+ int print_s(va_list args);                                                   .BB                                                       
+ int print_d(va_list args);                                                                                                             
+ int (*get_func(char x))(va_list);                                                                                                      
+.LP                                                                                                                                     
+.SH DESCRIPTION      
+The _printf() function is the main one, produce the output according to a formaa                                                       
+t as described below.                                                                                                                   
+.LP                                                                                                                                     
+ The print_s() function print the string str when format is the string s.                                                               
+ The print_c() function print the character ch when format is the string c.                                                             
+ The print_d() function print the integer (number) when the format is the stringg                                                       
+ d.                                                                                                                                     
+.LP                                                                                                                                     
+ It is used inside those last three funtions the _putchar() function to print, tt                                                       
+his one has the write() function inside.                                                                                                
+.LP                                                                                                                                     
+ The functions are called with a va_list, they invoke the va_arg macro.                                                                 
+.LP                                                                                                                                     
+ All of these functions write the output under the control of a format string thh                                                       
+at specifies how subsequent arguments are converted for output.                                                                         
+.LP                                                                                                                                     
+.SH Format of the format string                                                                                                         
+.LP                                                                                                                                     
+ The format string is a character string, beginning and ending in its initial shh    
+ift state, if any.  The format string is composed of zero or more directives: orr                                                       
+dinary characters (not %), which are copied unchanged to the output stream; and                                                         
+conversion specifications, each of which results in fetching zero or more subseqq                                                       
+uent arguments.  Each conversion specification is introduced by the character %.                                                        
+.LP                                                                                                                                     
+.SH Conversion specifiers                                                                                                               
+.LP                                                                                                                                     
+ A character that specifies the type of conversion to be applied. The conversionn                                                       
+ specifiers and their meanings are:                                                                                                     
+.B d, i                                                                                                                                 
+Print the integer                                                                                                                       
+.B c                                                                                                                                    
+Print the character                                                                                                                     
+.B s                                                                                                                                    
+Print the string                                                                                                                        
+.SH RETURN VALUE                                                                                                                        
+.LP                                                                                                                                     
+ Upon successful return, these functions return the number of characters printedd                                                       
+ (excluding the null byte used to end output to strings).     
+.LP                                                                                                                                     
+.SH EXAMPLE                                                                                                                             
+ #include <stdio.h>                                                                                                                     
+ #include <stdlib.h>                                                                                                                    
+ _printf("Let's print a simple sentence.\n");                                                                                           
+ len = _printf("%c", '\0');                                                                                                             
+ len = _printf("%s%c%c%c%s%%%s%c", "Loading ", '.', '.', '.', " 99", " Please waa                                                       
+it", '\n');                                                                                                                             
+ _printf(NULL);                                                                                                                         
+_printf("%s", len);                                                                                                                     
+.SH AUTHOR                                                                                                                              
+ Written by Maria Echeverria , Hector Andres and Andres Ocaña.                                                                          
+~                                                                                                                                       
+                                                              
