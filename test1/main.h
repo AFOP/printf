@@ -17,6 +17,7 @@ int _putchar(char c);
 int _printf(const char *format, ...);
 int print_c(va_list args);
 int print_s(va_list args);
+int print_d(va_list args);
 int print_percent(va_list args);
 int (*get_func(const char *format))(va_list);
 #endif

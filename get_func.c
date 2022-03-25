@@ -14,6 +14,8 @@ int (*get_func(const char *format))(va_list)
 	spec arr[] = {
 		{"c", print_c},
 		{"s", print_s},
+		{"d", print_d},
+		{"i", print_d},
 		{NULL, NULL}
 	};
 	while (arr[i].valid != NULL)
